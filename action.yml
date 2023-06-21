@@ -98,7 +98,7 @@ runs:
     - name: Git LFS Pull
       run: |
         git lfs pull --include  "${{ inputs.include }}" --exclude  "${{ inputs.exclude }}"
-        git submodule foreach 'git lfs pull --include  "${{ inputs.include }}" --exclude  "${{ inputs.exclude }} && git reset --hard && git restore *'"
+        git submodule foreach 'git lfs pull --include  "${{ inputs.include }}" --exclude  "${{ inputs.exclude }}" && git reset --hard && git restore *'
       shell: bash
 
     # Don't leave behind temp files in case build system checks for dirty workspace
